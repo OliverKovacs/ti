@@ -1,0 +1,254 @@
+%Please use LuaLaTeX or XeLaTeX
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usepackage{ragged2e}
+
+\definecolor{ethblue}{RGB}{32, 91, 174}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=ethblue,
+  linkcolor=ethblue,
+  citecolor=ethblue
+}
+
+\title{Theoretische Informatik}
+% \date[ABC 2021]{24. Sep 2026}
+\date[]{24. Sep 2026}
+\author{Olivér Kovács}
+% \institute{Organizational Unit\\can spread over 2 lines}
+
+\usetheme{eth}
+
+\colorlet{titlefgcolor}{ETHBlue}
+\colorlet{accentcolor}{ETHRed}
+
+\begin{document}
+
+%\def\titlefigure{elements/title-page-image}		% Default image
+%\def\titlefigure{elements/title-page-image-43}	% Use this for 4:3 presentations
+
+\titleframe
+
+% \tocframe
+
+% \section{Layout}
+
+\begin{frame}{Hallo!}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            Meine Webseite: \href{https://oliverkovacs.dev/ti}{oliverkovacs.dev/ti}
+
+            \vspace{2em}
+
+            Ich bin jederzeit erreichbar: \\
+            \href{tel:REDACTED}{REDACTED (WA)} \\
+            \href{mailto:okovacs@ethz.ch}{okovacs@ethz.ch}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \includegraphics[width=0.8\columnwidth]{img/qr}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Organisatorisches}
+    \begin{itemize}
+    \item Serien abgeben!
+        \begin{itemize}
+        \item 50\% benötigt, um zu den Zwischenprüfungen zugelassen zu werden
+        \end{itemize}
+
+    \item Blätter in Gruppen bearbeiten
+        \begin{itemize}
+        \item bis zu 3 Personen
+        \end{itemize}
+
+    \item Inhaltliche Änderungen
+
+    \item Auch Englisch ok
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fragen}
+    \begin{enumerate}
+    \item Welche Probleme kann man mit einem Computer lösen?
+    \item Welche Probleme kann man unter vernünftigem Aufwand \\
+        mit einem Computer lösen?
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Alphabete}
+
+    Welche der folgenden sind Alphabete?
+
+    \vspace{2em}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \(\Sigma_0 = \varnothing\) \\
+            \vspace{1em}
+            \(\Sigma_1 = \{0, 1\}\) \\
+            \vspace{1em}
+            \(\Sigma_2 = \{\square, \alpha, \includegraphics[scale=0.02]{img/skull}\}\)
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \(\Sigma_3 = \{0\}\) \\
+            \vspace{1em}
+            \(\Sigma_4 = \{n \in \mathbb N \mid n \text{ prim}\}\) \\
+            \vspace{1em}
+            \(\Sigma_5 = \{n \in \mathbb N \mid n^2 + n \text{ prim}\}\)
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Wörter}
+
+    Welche der folgenden sind Wörter?
+
+    \vspace{2em}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \(w_0 = 42\) \\
+            \vspace{1em}
+            \(w_1 = \lambda\)
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \(w_2 = \text{hallo␣ich␣bin␣ein␣wort}\) \\
+            \vspace{1em}
+            \(w_3 = 000...\)
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sprachen}
+    Welche der folgenden sind Sprachen?
+
+    \vspace{2em}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \(L_0 = \varnothing\) \\
+            \vspace{1em}
+            \(L_1 = \{\lambda\}\) \\
+            \vspace{1em}
+            \(L_2 = \{a^n \mid n \in \mathbb N\}\)
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \(L_3 = \Sigma^*\) \\
+            \vspace{1em}
+            \(L_4 = \lambda\) \\
+            \vspace{1em}
+            \(L_5 = \{w \mid w \text{ deutsch}\}\)
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sprachen}
+    Kann man die folgenden Terme vereinfachen?
+
+    \vspace{2em}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \(L_{\lambda} L\) \\
+            \vspace{1em}
+            \(L_{\varnothing} L\) \\
+            \vspace{1em}
+            \(|L^n|\)
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            % \(L_3 = \Sigma^*\) \\
+            % \vspace{1em}
+            % \(L_4 = \lambda\) \\
+            % \vspace{1em}
+            % \(L_5 = \{w \mid w \text{ deutsch}\}\)
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Entscheidungsprobleme}
+    \textbf{Definition 2.11.} Das \textit{Entscheidungsproblem}
+    \((\Sigma, L)\) für ein Alphabet \(\Sigma\) und eine
+    Sprache \(L \subseteq \Sigma^*\) ist, für jedes
+    \(x \in \Sigma^*\) zu entscheiden, ob
+
+    \[
+        x \in L \text{ oder } x \not\in L.
+    \]
+
+    Ein Algorithmus \(A\) \textit{löst} \((\Sigma, L)\), falls für
+    alle \(x \in \Sigma^*\) gilt:
+
+    \[
+        A(x) = \begin{cases}
+            1 & \text{ falls } x \in L, \\
+            0 & \text{ falls } x \not\in L.
+        \end{cases}
+    \]
+
+    Wir sagen, dass \(A\) die Sprache \(L\) \textit{erkennt}.
+
+\end{frame}
+
+\begin{frame}{Endliche Automaten}
+
+\textbf{Definition 3.1.}
+Ein (deterministischer) \textit{endlicher Automat (EA)} ist ein
+Quintupel \(M = (Q, \Sigma, \delta, q_0, F)\) wobei
+\begin{itemize}
+    \item \(Q\) eine endliche Menge von \textit{Zuständen} ist,
+    \item \(\Sigma\) ein Alphabet \textit{(Eingabealphabet)} ist,
+    \item \(\delta \colon Q \times \Sigma \to Q\) die \textit{Übergangsfunktion} ist,
+    \item \(q_0 \in Q\) der Anfangszustand ist,
+    \item \(F \subseteq Q\) die \textit{akzeptierenden} Zustände sind.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{enumerate}
+        \justifying
+        \item \textbf{Frage 1.}
+            Seien \(L_1 = \{aaab, abb\}^+\) und \(L_2 = \{w \mid |w|_a = |w|_b\}\)
+            zwei Sprachen über \(\Sigma = \{a, b\}\). Was ist das koninisch
+            kleinste Wort in \(L_1 \cap L_2\)?
+
+        \item \textbf{Frage 2.}
+            Sei \(n \in \mathbb N - \{0\}\). Wie viele Wörter der Länge \(n\)
+            über dem Alphabet \(\Sigma = \{a, b, c\}\) gibt es, die jeden der drei
+            Buchstaben mindestens einmal enthalten?
+
+        \item \textbf{Frage 3.}
+            Seien \(L_1\) und \(L_2\) zwei beliebige Sprachen, und seien
+            \(A = L_2(L_2 - L_1)\) und \(B = (L_2)^2 - L_2 L_1\).
+            Gelten \(A \subseteq B\) und \(B \subseteq A\) immer?
+
+    \end{enumerate}
+\end{frame}
+
+% \setbeamertemplate{footline}{}
+
+\begin{frame}{Aufgaben}
+    \begin{enumerate}
+        \justifying
+        \item \textbf{Aufgabe 2.6.}
+            Entwerfe eine Darstellung für Graphen über dem Alphabet
+            \(\Sigma_{\text{bool}}\).
+
+        \item \textbf{Aufgabe 2.12.}
+            Existieren Sprachen \(L_1, L_2, L_3\) so dass \(L_1(L_2 \cap L_3)\)
+            endlich ist und \(L_1 L_2 \cap L_1 L_3\) unendlich ist?
+
+        \item \textbf{Aufgabe 3.2.}
+            Sei \(L = \{w \in (\Sigma_{\text{bool}})^* \mid |w|_0 \text{ ist ungerade}\}\).
+            Entwerfe einen EA \(M\) mit \(L(M) = L\) und beweise \(L(M) = L\).
+
+        \item \textbf{Aufgabe 3.3.}
+            Entwerfe endliche Automaten für die Sprachen \(\varnothing\),
+            \(\Sigma^*\), und \(\Sigma^+\) für ein beliebiges Alphabet \(\Sigma\).
+            Gebe die formale Darstellung der Atomaten als Quintupel, sowie die
+            graphische Darstellung an.
+    \end{enumerate}
+\end{frame}
+
+\end{document}
