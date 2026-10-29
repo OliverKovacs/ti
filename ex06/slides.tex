@@ -1,0 +1,259 @@
+%Please use LuaLaTeX or XeLaTeX
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usepackage[ngerman]{babel}
+\usepackage{ragged2e}
+
+\definecolor{ethblue}{RGB}{32, 91, 174}
+\definecolor{mygrey}{RGB}{175, 175, 175}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=ethblue,
+  linkcolor=ethblue,
+  citecolor=ethblue
+}
+
+\title{Theoretische Informatik}
+% \date[ABC 2021]{24. Sep 2026}
+\date[]{29. Okt 2026}
+\author{Olivér Kovács}
+% \institute{Organizational Unit\\can spread over 2 lines}
+
+\usetheme{eth}
+
+\colorlet{titlefgcolor}{ETHBlue}
+\colorlet{accentcolor}{ETHRed}
+
+\begin{document}
+
+%\def\titlefigure{elements/title-page-image}		% Default image
+%\def\titlefigure{elements/title-page-image-43}	% Use this for 4:3 presentations
+
+\titleframe
+
+% \tocframe
+
+% \section{Layout}
+
+\begin{frame}{Midterm}
+    Altklausuren: \href{https://exams.vis.ethz.ch/}{https://exams.vis.ethz.ch/}
+
+    \vspace{1em}
+
+    Stoff hat sich geändert:
+    \begin{itemize}
+    \item
+        Kolmogorovkomplexität, Satz 3.1 nicht relevant.
+    \item
+        Relevant bis einschliesslich
+        \begin{itemize}
+            \item
+                Vorlesung am 03. Novemeber,
+            \item
+                Blatt 6,
+            \item
+                Quiz 7.
+        \end{itemize}
+    \item Manches davon war früher nicht auf den Midterms!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bemerkungen zur Serie}
+    \begin{itemize}
+    \item
+        9 (b). Mathematische Angabe erheblich einfacher als Beschreibung des Konstruktionsverfahrens.
+        \vspace{1em}
+    \item
+        9 (c). Falls konkreter Automat verlangt ist, einfach Bild zeichnen. :)
+        \vspace{1em}
+    \item
+        10 (a). Für allgemeine Konstruktionen reicht ein Bild nicht.
+        \vspace{1em}
+    \item
+        10 (a). Regularität von \(L^R\) muss bewiesen werden.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz}
+    Gibt es Fragen zum Quiz?
+\end{frame}
+
+\begin{frame}{Reduktionen}
+
+    \justifying
+
+    \textbf{Definition 5.3.}
+    Die Sprache \(L_1\) ist auf \(L_2\) \textit{rekursiv reduzierbar},
+    \(L_1 \le_{\text{R}} L_2\), falls
+    \[
+        L_2 \in \mathcal L_{\text{R}} \implies L_1 \in \mathcal L_{\text{R}}. 
+    \]
+
+    \vspace{1em}
+
+    \textbf{Definition 5.4.}
+    Die Sprache \(L_1\) ist auf \(L_2\) \textit{EE-reduzierbar},
+    \(L_1 \le_{\text{EE}} L_2\), falls eine TM \(M\) existiert,
+    welche die Funktion \(f_M\) berechnet, so dass gilt
+    \[
+        x \in L_1 \iff f_M(x) \in L_2.
+    \]
+
+    \textbf{Lemma 5.4.}
+    Für jede Sprache \(L\) gilt \(L \le_{\text{R}} L^C\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\begin{frame}{Diagonalsprache}
+
+    \justifying
+
+    \textbf{Definition.}
+    Seien \(w_1, w_2, w_3, \ldots\) die Wörter über \(\{0, 1\}\) in kanonischer Ordnung
+    und \(M_1, M_2, M_3, \ldots\) die Folge aller Turingmaschinen. Wir definieren die
+    \textit{Diagonalsprache} \(L_{\text{diag}}\) als
+
+    \[
+        L_{\text{diag}} =
+        \{ w \in \{0, 1\}^* \mid w = w_i \text{ und } M_i \text{ akzeptiert } w_i \text{ nicht} \}.
+    \]
+
+    \vspace{1em}
+
+    \textbf{Satz 5.5.} \(L_{\text{diag}} \not\in \mathcal L_{\text{RE}}\).
+
+    \vspace{1em}
+
+    \textbf{Lemma 5.5.} \((L_{\text{diag}})^C \in \mathcal L_{\text{RE}}\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\begin{frame}{Die universelle Sprache}
+
+    \justifying
+
+    \textbf{Definition 5.6.}
+    Die \textit{universelle Sprache} ist die Sprache
+
+    \[
+        L_U = \{\text{Kod}(M)\#w \mid w \in \{0, 1\}^* \text{ und } M \text{ akzeptiert } w\}.
+    \]
+
+    \vspace{1em}
+
+    \textbf{Satz 5.6.} \(L_{\text{U}} \in \mathcal L_{\text{RE}}\).
+
+    \vspace{1em}
+
+    \textbf{Satz 5.7.} \(L_{\text{U}} \not\in \mathcal L_{\text{R}}\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\begin{frame}{Das Halteproblem}
+
+    \justifying
+
+    \textbf{Definition 5.6.}
+    Das \textit{Halteproblem} ist das Entscheidungsproblem \((\{0, 1, \#\}, L_H)\), wobei
+    \[
+        L_H = \{\text{Kod}(M)\#w \mid w \in \{0, 1\}^* \text{ und } M \text{ hält auf } w\}.
+    \]
+
+    \vspace{1em}
+
+    \textbf{Satz 5.8.} \(L_{\text{H}} \not\in \mathcal L_{\text{R}}\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\begin{frame}{\(L_{\text{empty}}\)}
+
+    \justifying
+
+    \textbf{Definition.} Sei \(L_{\text{empty}}\) die Sprache
+    
+    \[
+        L_{\text{empty}} = \{\text{Kod}(M) \mid L(M) = \varnothing\}.
+    \]
+
+    \vspace{1em}
+
+    \textbf{Lemma 5.6.} \((L_{\text{empty}})^C \in \mathcal L_{\text{RE}}\).
+
+    \vspace{1em}
+
+    \textbf{Lemma 5.7.} \((L_{\text{empty}})^C \not\in \mathcal L_{\text{R}}\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\begin{frame}{\(L_{\text{empty}}\)}
+
+    \justifying
+
+    \textbf{Korollar 5.4.} \(L_{\text{empty}} \not\in \mathcal L_{\text{R}}\).
+
+    \vspace{1em}
+
+    \textbf{Korollar 5.5.} Sei \(L_{\text{EQ}}\) die Sprache
+
+    \[
+        L_{\text{EQ}} = \{\text{Kod}(M)\#\text{Kod}(M') \mid L(M) = L(M')\}.
+    \]
+
+    Es gilt \(L_{\text{EQ}} \not\in \mathcal L_{R}\).
+
+    \vspace{1em}
+
+    Beweis?
+\end{frame}
+
+\setbeamertemplate{footline}{}
+
+\begin{frame}{Aufgaben}
+    \begin{enumerate}
+        \justifying
+        \item
+            \textbf{Aufgabe 1.}
+            Beschreibe informell eine NTM, welche die Sprache
+            \[
+                L_{\text{composite}} = \{ w = 0^n \mid n \in \mathbb N \text{ ist nicht prim}\}
+            \]
+            akzeptiert.
+        \item
+            \textbf{Aufgabe 2.}
+            Wir betrachten die Sprache
+            \[
+                L_{\lambda + 1} = \{\text{Kod}(M) \mid \text{TM } M \text{ akzeptiert } \lambda \text{ und mindestens ein weiteres Wort}\}.
+            \]
+            Zeige, dass \(L_{\lambda + 1} \in \mathcal L_{\text{RE}}\).
+        \item
+            \textbf{Aufgabe 3.}
+            Beweise, dass für jede Sprache \(L\) gilt
+            \[
+                L \in \mathcal L_{\text{RE}} \setminus \mathcal L_{\text{R}} \implies L^C \not\in \mathcal L_{\text{RE}}.
+            \]
+        \item
+            \textbf{Aufgabe 4.}
+            Gibt es eine Sprache \(L\), für die gilt
+            \(L \not\in \mathcal L_{\text{RE}}\) und
+            \(L^C \not\in \mathcal L_{\text{RE}}\)?
+
+    \end{enumerate}
+\end{frame}
+
+\end{document}
